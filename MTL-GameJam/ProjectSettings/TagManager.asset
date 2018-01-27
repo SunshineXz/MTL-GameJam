@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BelowGround
+    uniqueID: 2923487439
+    locked: 0
+  - name: Ground
+    uniqueID: 2465272517
+    locked: 0
+  - name: AboveGround
+    uniqueID: 779500583
+    locked: 0
+  - name: Character
+    uniqueID: 1191251077
+    locked: 0
