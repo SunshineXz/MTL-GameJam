@@ -8,6 +8,7 @@ public class Character : MonoBehaviour {
     public int Health = 100;
     public int Damage = 20;
     protected Vector2 Position;
+    protected Tile TileDestination;
  
     public Character() {
         Position = Vector2.zero;

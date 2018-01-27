@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayableCharacter : Character {
-
+    bool Moving = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,36 +13,58 @@ public class PlayableCharacter : Character {
 	// Update is called once per frame
 	void Update () {
         ReactToUserInput();
-	}
+        MoveCharacter();
+    }
 
     public void ReactToUserInput() {
+        if (Moving)
+            return;
+
         if (Input.GetKey(KeyCode.W))
         {
-            MoveCharacter(Position + new Vector2(0, 1));
+            SetNextPosition(Position + new Vector2(0, 1));
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            MoveCharacter(Position + new Vector2(0, -1));
+            SetNextPosition(Position + new Vector2(0, -1));
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            MoveCharacter(Position + new Vector2(-1, 0));
+            SetNextPosition(Position + new Vector2(-1, 0));
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            MoveCharacter(Position + new Vector2(1, 0));
+            SetNextPosition(Position + new Vector2(1, 0));
         }
     }
 
-    public void MoveCharacter(Vector2 NextPosition)
+    public void SetNextPosition(Vector2 nextPosition)
     {
         // VÉRIFIER AVEC LE WORLD SI LA TILE EST TRAVERSABLE
 
-        Tile tile = WorldManager.instance.GetTileAtPosition(NextPosition);
-        if (tile && tile.CanGoThrough)
+        TileDestination = WorldManager.instance.GetTileAtPosition(nextPosition);
+        if (TileDestination && TileDestination.CanGoThrough)
         {
-            Position = NextPosition;
-            transform.position = tile.transform.position;
+            Position = nextPosition;
+            //transform.position = tile.transform.position;
+            Moving = true;
         }
     }
+
+    private void MoveCharacter()
+    {
+        if (!Moving)
+        {
+            return;
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, TileDestination.transform.position, 0.1f);
+        
+        if(Vector3.Distance(transform.position, TileDestination.transform.position) <= 0.1f)
+        {
+            transform.position = TileDestination.transform.position;
+            Moving = false;
+        }
+    }
+
 }
