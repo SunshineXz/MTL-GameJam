@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayableCharacter : Character {
-    Item PickedItem;
+    public Item PickedItem;
     bool Moving = false;
     bool Controlling = false;
 	// Use this for initialization
@@ -38,7 +38,7 @@ public class PlayableCharacter : Character {
         {
             SetNextPosition(Position + new Vector2(1, 0));
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             DropItem();
         }
@@ -54,7 +54,16 @@ public class PlayableCharacter : Character {
             if(TileDestination.TileItem != null)
             {
                 PickedItem = TileDestination.TileItem;
+                TileDestination.TileItem = null;
                 PickedItem.gameObject.GetComponent<Renderer>().enabled = false;
+
+                if(TileDestination.GetType() == typeof(Portal))
+                {
+                    Portal LinkedPortal = ((Portal)TileDestination).LinkedPortal;
+                    LinkedPortal.TileItem = null;
+                    LinkedPortal.gameObject.GetComponent<Renderer>().enabled = false;
+
+                }
             }
 
             Position = nextPosition;
@@ -82,12 +91,17 @@ public class PlayableCharacter : Character {
     private void DropItem()
     {
         Tile tile = WorldManager.instance.GetTileAtPosition(Position);
-        if (PickedItem != null && tile.GetType() == typeof(Portal))
+        if (PickedItem != null)
         {
-            Portal portal = (Portal)tile;
-            Item portalItem = portal.PickItem();
-            portal.DropItem(PickedItem);
-            PickedItem = portalItem;
+            if(tile.GetType() == typeof(Portal))
+            {
+                PickedItem = ((Portal)tile).SwitchItem(PickedItem);
+            } else
+            {
+                PickedItem.Position = tile.Position;
+                tile.TileItem = PickedItem;
+                PickedItem.gameObject.GetComponent<Renderer>().enabled = true;
+            }
         }
     }
 
