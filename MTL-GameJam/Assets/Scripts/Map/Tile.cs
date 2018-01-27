@@ -18,6 +18,7 @@ public class Tile : MonoBehaviour
     public bool CanGoThrough;
     public Image TileImage;
     public Door TileDoor;
+    public Item TileItem;
 
     private void OnValidate()
     {
