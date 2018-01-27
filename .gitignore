@@ -43,3 +43,8 @@ ehthumbs.db
 [Dd]esktop.ini
 Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
+*.csproj
+*.log
+*.mdb
+MTL GameJam/Library/ScriptAssemblies/Assembly-CSharp.dll
+MTL GameJam/MTL GameJam.csproj
