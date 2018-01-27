@@ -18,11 +18,12 @@ public class Portal : Tile {
 
     public void DropItem(Item aItem)
     {
-        aItem.gameObject.SetActive(true);
         PortalItem = aItem;
         LinkedPortal.PortalItem = aItem;
         PortalItem.Position = Position;
         LinkedPortal.PortalItem.Position = LinkedPortal.Position;
+        PortalItem.gameObject.GetComponent<Renderer>().enabled = true;
+        LinkedPortal.PortalItem.gameObject.GetComponent<Renderer>().enabled = true;
     }
 
     public Item PickItem()
