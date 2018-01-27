@@ -5,15 +5,20 @@ using UnityEngine;
 public class Item : MonoBehaviour {
 
     string Name;
-    static public bool Usable = false;
-
+    static public bool Usable = false; 
+    public Vector2 Position = Vector2.zero;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnValidate()
+    {
+        transform.position = Position * 1.6f;
+    }
+
+    // Update is called once per frame
+    void Update () {
         
 	}
 }
