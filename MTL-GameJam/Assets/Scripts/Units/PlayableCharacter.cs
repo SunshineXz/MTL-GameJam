@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayableCharacter : Character {
     bool Moving = false;
+    bool Controlling = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,7 +18,7 @@ public class PlayableCharacter : Character {
     }
 
     public void ReactToUserInput() {
-        if (Moving)
+        if (Moving || !Controlling)
             return;
 
         if (Input.GetKey(KeyCode.W))
@@ -67,4 +68,8 @@ public class PlayableCharacter : Character {
         }
     }
 
+    public void SetControlling(bool controlling)
+    {
+        Controlling = controlling;
+    }
 }

@@ -13,7 +13,7 @@ public class Potion : Item {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            WorldManager.instance.CurrentCharacter.UsePotion(this);
+            //WorldManager.instance.CurrentCharacter.UsePotion(this);
         }
     }
 }
