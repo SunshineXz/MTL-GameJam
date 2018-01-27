@@ -5,7 +5,6 @@ using UnityEngine;
 public class Portal : Tile {
 
     public Portal LinkedPortal;
-    public Item PortalItem;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,28 +15,21 @@ public class Portal : Tile {
 		
 	}
 
-    public void DropItem(Item aItem)
+    public Item SwitchItem(Item aItem)
     {
-        PortalItem = aItem;
-        LinkedPortal.PortalItem = aItem;
-        PortalItem.Position = Position;
-        LinkedPortal.PortalItem.Position = LinkedPortal.Position;
-        PortalItem.gameObject.GetComponent<Renderer>().enabled = true;
-        LinkedPortal.PortalItem.gameObject.GetComponent<Renderer>().enabled = true;
-    }
+        Item temp = TileItem;
 
-    public Item PickItem()
-    {
-        Item temp = PortalItem;
+        // Drop Item
+        aItem.Position = Position;
+        TileItem = aItem;
+        TileItem.gameObject.GetComponent<Renderer>().enabled = true;
 
-        if (temp != null)
-        {
-            PortalItem.gameObject.SetActive(false);
-            LinkedPortal.gameObject.SetActive(false);
-        }
+        
+        Item copy = GameObject.Instantiate(aItem.gameObject, new Vector2(0,0), Quaternion.identity).GetComponent<Item>();
+        copy.Position = LinkedPortal.Position;
+        LinkedPortal.TileItem = copy;
+        LinkedPortal.TileItem.gameObject.GetComponent<Renderer>().enabled = true;
 
-        PortalItem = null;
-        LinkedPortal.PortalItem = null;
         return temp;
     }
 }

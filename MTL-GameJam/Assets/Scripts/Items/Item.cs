@@ -6,6 +6,7 @@ public class Item : MonoBehaviour {
     string Name;
     static public bool Usable = false; 
     public Vector2 Position;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +19,6 @@ public class Item : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
-	}
+        transform.position = Position * 1.6f;
+    }
 }
