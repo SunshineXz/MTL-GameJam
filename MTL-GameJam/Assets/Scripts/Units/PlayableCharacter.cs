@@ -18,30 +18,31 @@ public class PlayableCharacter : Character {
     public void ReactToUserInput() {
         if (Input.GetKey(KeyCode.W))
         {
-            MoveCharacter(Position + new Vector2(0, 1));//TILESIZE
+            MoveCharacter(Position + new Vector2(0, 1));
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            MoveCharacter(Position + new Vector2(0, -1) * Time.deltaTime * 32);
+            MoveCharacter(Position + new Vector2(0, -1));
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            MoveCharacter(Position + new Vector2(-1, 0) * Time.deltaTime * 32);
+            MoveCharacter(Position + new Vector2(-1, 0));
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            MoveCharacter(Position + new Vector2(1, 0) * Time.deltaTime * 32);
+            MoveCharacter(Position + new Vector2(1, 0));
         }
     }
 
     public void MoveCharacter(Vector2 NextPosition)
     {
         // VÉRIFIER AVEC LE WORLD SI LA TILE EST TRAVERSABLE
-        transform.position = Position = NextPosition;
-    }
 
-    public void UsePotion(Potion potion)
-    {
-        
+        Tile tile = WorldManager.instance.GetTileAtPosition(NextPosition);
+        if (tile && tile.CanGoThrough)
+        {
+            Position = NextPosition;
+            transform.position = tile.transform.position;
+        }
     }
 }

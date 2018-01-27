@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
+    public int MaxHealth = 100;
     public int Health = 100;
-    public float MoveSpeed = 5.0f;
+    public int Damage = 20;
     protected Vector2 Position;
  
     public Character() {
@@ -22,5 +23,18 @@ public class Character : MonoBehaviour {
 		
 	}
 
- 
+    public void UsePotion(Potion potion)
+    {
+        Heal(potion.Health);
+    }
+
+    private void Heal(int potionHealth)
+    {
+        Health = (Health + potionHealth <= MaxHealth) ? Health + potionHealth : MaxHealth;
+    }
+
+    private void BuffDamage(int potionDamage)
+    {
+        Damage += potionDamage;
+    }
 }

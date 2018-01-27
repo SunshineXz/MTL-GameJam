@@ -14,7 +14,7 @@ public class Weapon : Item {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //LightWorld.GetCharacter().AddItem(this);
+            //WorldManager.instance.Character.AddItem(this);
         }
     }
 }

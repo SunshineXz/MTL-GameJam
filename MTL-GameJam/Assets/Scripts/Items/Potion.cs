@@ -13,7 +13,7 @@ public class Potion : Item {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //LightWorld.GetCharacter().UsePotion(this);
+            WorldManager.instance.Character.UsePotion(this);
         }
     }
 }
