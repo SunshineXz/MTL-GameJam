@@ -9,11 +9,13 @@ public class WorldManager : MonoBehaviour {
 
     private const int MAP_SIZE = 10;
 
+    public CameraController CameraController;
+
     private GameObject CurrentWorld;
     public GameObject LightWorld;
     public GameObject DarkWorld;
 
-    public PlayableCharacter CurrentCharacter;
+    private PlayableCharacter CurrentCharacter;
     public PlayableCharacter LightCharacter;
     public PlayableCharacter DarkCharacter;
 
@@ -32,6 +34,7 @@ public class WorldManager : MonoBehaviour {
 
         CurrentWorld = LightWorld;
         SetActiveTiles(World.Light);
+        SetActiveCharacter(World.Light);
     }
     // Use this for initialization
     void Start () {
@@ -80,11 +83,23 @@ public class WorldManager : MonoBehaviour {
         {
             case World.Light:
                 CurrentCharacter = LightCharacter;
+                LightCharacter.gameObject.GetComponent<Renderer>().enabled = true;
+                LightCharacter.SetControlling(true);
+
+                DarkCharacter.gameObject.GetComponent<Renderer>().enabled = false;
+                DarkCharacter.SetControlling(false);
                 break;
             case World.Dark:
                 CurrentCharacter = DarkCharacter;
+                LightCharacter.gameObject.GetComponent<Renderer>().enabled = false;
+                LightCharacter.SetControlling(false);
+
+                DarkCharacter.gameObject.GetComponent<Renderer>().enabled = true;
+                DarkCharacter.SetControlling(true);
                 break;
         }
+
+        CameraController.SetCharacter(CurrentCharacter.gameObject);
     }
 
     private void SetActiveTiles(World world)
@@ -102,5 +117,10 @@ public class WorldManager : MonoBehaviour {
             Transform tile = LightWorld.transform.GetChild(i);
             tile.gameObject.SetActive(isLightActive);
         }
+    }
+
+    public PlayableCharacter GetCurrentCharacter()
+    {
+        return CurrentCharacter.GetComponent<PlayableCharacter>();
     }
 }
