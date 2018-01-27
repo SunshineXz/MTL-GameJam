@@ -26,8 +26,12 @@ public class Tile : MonoBehaviour
         
     }
 
-    public bool CaracterCanGoThrough()
+    public bool CharacterCanGoThrough(Item characterItem)
     {
+        if(TileDoor && !TileDoor.isOpen && characterItem.GetType() == typeof(Key))
+        {
+            TileDoor.isOpen = true;
+        }
         return (CanGoThrough && ((TileDoor != null) ? TileDoor.isOpen : true));
     }
 }
