@@ -6,7 +6,7 @@ public class Item : MonoBehaviour {
 
     string Name;
     static public bool Usable = false; 
-    public Vector2 Position = Vector2.zero;
+    public Vector2 Position;
 	// Use this for initialization
 	void Start () {
 		

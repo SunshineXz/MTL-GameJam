@@ -16,8 +16,9 @@ public class Door : MonoBehaviour {
 		
 	}
 
-    public void OpenDoor(GameObject thisGameObject)
+    public void OpenDoor()
     {
         isOpen = true;
+        gameObject.SetActive(false);
     }
 }
