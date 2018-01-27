@@ -8,9 +8,11 @@ public class WorldManager : MonoBehaviour {
 
     private const int MAP_SIZE = 10;
 
-    public GameObject Tiles;
+    private GameObject CurrentWorld;
+    public GameObject LightWorld;
+    public GameObject DarkWorld;
+
     public PlayableCharacter Character;
-    Tile[] tiles;
 
     private void Awake()
     {
@@ -18,7 +20,9 @@ public class WorldManager : MonoBehaviour {
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-        tiles = GameObject.FindObjectsOfType<Tile>();
+
+        CurrentWorld = LightWorld;
+        SetActiveTiles(true);
     }
     // Use this for initialization
     void Start () {
@@ -27,17 +31,49 @@ public class WorldManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ChangeWorld();
+        }
 	}
 
     public Tile GetTileAtPosition(Vector2 position)
     {
-        foreach(Tile tile in tiles){
-            if(tile.Position == position)
+        foreach(Tile tile in transform.Find(CurrentWorld.name).GetComponentsInChildren<Tile>())
+        {
+            if (tile.Position == position)
             {
                 return tile;
             }
         }
         return null;
+    }
+
+    private void ChangeWorld()
+    {
+        if (CurrentWorld == LightWorld)
+        {
+            CurrentWorld = DarkWorld;
+            SetActiveTiles(false);
+        } else if (CurrentWorld == DarkWorld)
+        {
+            CurrentWorld = LightWorld;
+            SetActiveTiles(true);
+        }
+    }
+
+    private void SetActiveTiles(bool isLightActive)
+    {
+        for (int i = 0; i < DarkWorld.transform.childCount; i++)
+        {
+            Transform tile = DarkWorld.transform.GetChild(i);
+            tile.gameObject.SetActive(!isLightActive);
+        }
+
+        for (int i = 0; i < LightWorld.transform.childCount; i++)
+        {
+            Transform tile = LightWorld.transform.GetChild(i);
+            tile.gameObject.SetActive(isLightActive);
+        }
     }
 }
