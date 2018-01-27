@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Tile {
+public class Door : MonoBehaviour {
 
-    bool isOpen;
+    public bool isOpen;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +19,5 @@ public class Door : Tile {
     public void OpenDoor(GameObject thisGameObject)
     {
         isOpen = true;
-        CanGoThrough = true;
     }
 }

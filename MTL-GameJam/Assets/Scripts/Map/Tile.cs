@@ -17,11 +17,17 @@ public class Tile : MonoBehaviour
     public Vector2 Position;
     public bool CanGoThrough;
     public Image TileImage;
+    public Door TileDoor;
 
     private void OnValidate()
     {
         transform.position = Position * 1.6f;
         
+    }
+
+    public bool CaracterCanGoThrough()
+    {
+        return (CanGoThrough && (TileDoor != null) ? TileDoor.isOpen : true);
     }
 }
 

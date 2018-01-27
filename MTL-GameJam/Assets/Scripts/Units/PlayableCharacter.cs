@@ -43,7 +43,7 @@ public class PlayableCharacter : Character {
         // VÉRIFIER AVEC LE WORLD SI LA TILE EST TRAVERSABLE
 
         TileDestination = WorldManager.instance.GetTileAtPosition(nextPosition);
-        if (TileDestination && TileDestination.CanGoThrough)
+        if (TileDestination && TileDestination.CaracterCanGoThrough())
         {
             Position = nextPosition;
             //transform.position = tile.transform.position;
