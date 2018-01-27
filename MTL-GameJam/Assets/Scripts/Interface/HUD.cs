@@ -20,6 +20,12 @@ public class HUD : MonoBehaviour {
             SpriteRenderer spriterenderer = item.gameObject.GetComponent<SpriteRenderer>();
             ItemPicked = GetComponent<Image>();
             ItemPicked.sprite = spriterenderer.sprite;
+            ItemPicked.enabled = true;
+        }
+        else
+        {
+            ItemPicked = GetComponent<Image>();
+            ItemPicked.enabled = false;
         }
     }
 }
