@@ -34,9 +34,14 @@ public class PlayableCharacter : Character {
         }
     }
 
-    private void MoveCharacter(Vector2 NextPosition)
+    public void MoveCharacter(Vector2 NextPosition)
     {
         // VÉRIFIER AVEC LE WORLD SI LA TILE EST TRAVERSABLE
         transform.position = Position = NextPosition;
+    }
+
+    public void UsePotion(Potion potion)
+    {
+        
     }
 }
