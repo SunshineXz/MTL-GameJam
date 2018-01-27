@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public enum TileTypeEnum
 {
     Wall,
-    Grass
+    Grass,
+    Water
 }
 
 
