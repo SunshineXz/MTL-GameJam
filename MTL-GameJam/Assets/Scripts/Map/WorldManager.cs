@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,15 @@ public class WorldManager : MonoBehaviour {
     public GameObject LightWorld;
     public GameObject DarkWorld;
 
-    public PlayableCharacter Character;
+    public PlayableCharacter CurrentCharacter;
+    public PlayableCharacter LightCharacter;
+    public PlayableCharacter DarkCharacter;
+
+    enum World
+    {
+        Light,
+        Dark
+    }
 
     private void Awake()
     {
@@ -22,7 +31,7 @@ public class WorldManager : MonoBehaviour {
             Destroy(gameObject);
 
         CurrentWorld = LightWorld;
-        SetActiveTiles(true);
+        SetActiveTiles(World.Light);
     }
     // Use this for initialization
     void Start () {
@@ -54,16 +63,34 @@ public class WorldManager : MonoBehaviour {
         if (CurrentWorld == LightWorld)
         {
             CurrentWorld = DarkWorld;
-            SetActiveTiles(false);
-        } else if (CurrentWorld == DarkWorld)
+            SetActiveTiles(World.Dark);
+            SetActiveCharacter(World.Dark);
+        }
+        else if (CurrentWorld == DarkWorld)
         {
             CurrentWorld = LightWorld;
-            SetActiveTiles(true);
+            SetActiveTiles(World.Light);
+            SetActiveCharacter(World.Light);
         }
     }
 
-    private void SetActiveTiles(bool isLightActive)
+    private void SetActiveCharacter(World world)
     {
+        switch (world)
+        {
+            case World.Light:
+                CurrentCharacter = LightCharacter;
+                break;
+            case World.Dark:
+                CurrentCharacter = DarkCharacter;
+                break;
+        }
+    }
+
+    private void SetActiveTiles(World world)
+    {
+        bool isLightActive = (world == World.Light) ? true : false;
+
         for (int i = 0; i < DarkWorld.transform.childCount; i++)
         {
             Transform tile = DarkWorld.transform.GetChild(i);
