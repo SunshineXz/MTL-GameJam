@@ -24,12 +24,12 @@ public class Portal : Tile {
         TileItem = aItem;
         TileItem.gameObject.GetComponent<Renderer>().enabled = true;
 
-        
-        Item copy = GameObject.Instantiate(aItem.gameObject, new Vector2(0,0), Quaternion.identity).GetComponent<Item>();
+
+        Item copy = GameObject.Instantiate(aItem.gameObject).GetComponent<Item>();
+        copy.transform.parent = WorldManager.instance.GetOtherWorld().gameObject.transform;
         copy.Position = LinkedPortal.Position;
         LinkedPortal.TileItem = copy;
         LinkedPortal.TileItem.gameObject.GetComponent<Renderer>().enabled = true;
-
         return temp;
     }
 }

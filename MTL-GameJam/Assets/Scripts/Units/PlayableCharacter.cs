@@ -69,9 +69,8 @@ public class PlayableCharacter : Character {
                 if(TileDestination.GetType() == typeof(Portal))
                 {
                     Portal LinkedPortal = ((Portal)TileDestination).LinkedPortal;
+                    LinkedPortal.TileItem.gameObject.GetComponent<Renderer>().enabled = false;
                     LinkedPortal.TileItem = null;
-                    LinkedPortal.gameObject.GetComponent<Renderer>().enabled = false;
-
                 }
             }
 

@@ -3248,6 +3248,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4096235289817266, guid: c15a5515d5a8af3428ea98ea24012dd7,
     type: 2}
   m_PrefabInternal: {fileID: 341564644}
+--- !u!114 &341564646 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114527954102629660, guid: c15a5515d5a8af3428ea98ea24012dd7,
+    type: 2}
+  m_PrefabInternal: {fileID: 341564644}
+  m_Script: {fileID: 11500000, guid: 67c483f388b9bf94e913574d73086f55, type: 3}
 --- !u!1001 &344616888
 Prefab:
   m_ObjectHideFlags: 0
@@ -8510,6 +8516,11 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114527954102629660, guid: c15a5515d5a8af3428ea98ea24012dd7,
+        type: 2}
+      propertyPath: LinkedPortal
+      value: 
+      objectReference: {fileID: 341564646}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c15a5515d5a8af3428ea98ea24012dd7, type: 2}
   m_IsPrefabParent: 0
