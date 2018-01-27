@@ -8,6 +8,7 @@ public class LightWorld : MonoBehaviour {
     private const int MAP_SIZE = 10;
 
     public GameObject TilePrefab;
+    public PlayableCharacter Character;
     List<List<Tile>> Map = new List<List<Tile>>();
 
 	// Use this for initialization
