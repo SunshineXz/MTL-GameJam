@@ -117,4 +117,9 @@ public class PlayableCharacter : Character {
     {
         Controlling = controlling;
     }
+
+    public Item GetPickedItem()
+    {
+        return PickedItem;
+    }
 }
