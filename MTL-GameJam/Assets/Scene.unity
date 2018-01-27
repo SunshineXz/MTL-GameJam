@@ -1836,6 +1836,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4540319179665024, guid: fad69fcbf3df4d3408e94b505dbd5060,
     type: 2}
   m_PrefabInternal: {fileID: 182464440}
+--- !u!114 &185150339 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114265521591551080, guid: 0a95e52323f84de4092fe20b8f01060f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1034504132}
+  m_Script: {fileID: 11500000, guid: e6131f3403a18aa4190bb316586eb0b0, type: 3}
 --- !u!1001 &186559168
 Prefab:
   m_ObjectHideFlags: 0
@@ -5644,7 +5650,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LightWorld: {fileID: 1971415510}
   DarkWorld: {fileID: 1701077758}
-  Character: {fileID: 1321977199}
+  CurrentCharacter: {fileID: 0}
+  LightCharacter: {fileID: 0}
+  DarkCharacter: {fileID: 0}
 --- !u!1001 &685294961
 Prefab:
   m_ObjectHideFlags: 0
@@ -7134,6 +7142,11 @@ Prefab:
       propertyPath: Position.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114710755478854764, guid: fad69fcbf3df4d3408e94b505dbd5060,
+        type: 2}
+      propertyPath: TileDoor
+      value: 
+      objectReference: {fileID: 185150339}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fad69fcbf3df4d3408e94b505dbd5060, type: 2}
   m_IsPrefabParent: 0
@@ -9939,12 +9952,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1eb176854b64d164abf0fff16a7db328, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1321977199 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114598241555048152, guid: 1eb176854b64d164abf0fff16a7db328,
-    type: 2}
-  m_PrefabInternal: {fileID: 1321977198}
-  m_Script: {fileID: 11500000, guid: ad47f2a073fbb2b428aa3117ac21b7ff, type: 3}
 --- !u!1001 &1331373840
 Prefab:
   m_ObjectHideFlags: 0

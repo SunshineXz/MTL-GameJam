@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
 
     public bool CaracterCanGoThrough()
     {
-        return (CanGoThrough && (TileDoor != null) ? TileDoor.isOpen : true);
+        return (CanGoThrough && ((TileDoor != null) ? TileDoor.isOpen : true));
     }
 }
 
