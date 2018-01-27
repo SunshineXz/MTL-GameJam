@@ -54,7 +54,7 @@ public class PlayableCharacter : Character {
             if(TileDestination.TileItem != null)
             {
                 PickedItem = TileDestination.TileItem;
-                PickedItem.gameObject.SetActive(false);
+                PickedItem.gameObject.GetComponent<Renderer>().enabled = false;
             }
 
             Position = nextPosition;
@@ -85,6 +85,9 @@ public class PlayableCharacter : Character {
         if (PickedItem != null && tile.GetType() == typeof(Portal))
         {
             Portal portal = (Portal)tile;
+            Item portalItem = portal.PickItem();
+            portal.DropItem(PickedItem);
+            PickedItem = portalItem;
         }
     }
 

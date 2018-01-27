@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour {
-
     string Name;
     static public bool Usable = false; 
     public Vector2 Position = Vector2.zero;
