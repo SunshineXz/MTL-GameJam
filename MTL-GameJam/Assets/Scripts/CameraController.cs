@@ -9,12 +9,14 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Offset = transform.position - Character.transform.position;
+        if(Character)
+            Offset = transform.position - Character.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Character.transform.position + Offset;
+        if(Character)
+            transform.position = Character.transform.position + Offset;
 	}
 
     public void SetCharacter(GameObject character)
