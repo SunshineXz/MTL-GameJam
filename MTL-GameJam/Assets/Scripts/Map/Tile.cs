@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public Image TileImage;
     public Door TileDoor;
     public Item TileItem;
+    public Exit TileExit;
 
     private void OnValidate()
     {
@@ -37,6 +38,10 @@ public class Tile : MonoBehaviour
                 if (!TileDoor.isOpen && characterItem && characterItem.GetType() == typeof(Key))
                 {
                     TileDoor.isOpen = true;
+                    CanGoThrough = true;
+                }
+                else if(TileDoor.isOpen)
+                {
                     CanGoThrough = true;
                 }
                 else

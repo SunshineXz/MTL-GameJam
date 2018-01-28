@@ -18,6 +18,19 @@ public class PlayableCharacter : Character {
         MoveCharacter();
     }
 
+    public bool CheckEnd()
+    {
+        TileDestination = WorldManager.instance.GetTileAtPosition(Position);
+        if(TileDestination && TileDestination.TileExit)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void ReactToUserInput() {
         if (Moving || !Controlling)
             return;
