@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WorldManager : MonoBehaviour {
     public static WorldManager instance = null;
+
+    public int CurrentLevel = 0;
 
     private const int MAP_SIZE = 10;
 
@@ -47,6 +50,7 @@ public class WorldManager : MonoBehaviour {
         {
             ChangeWorld();
         }
+        CheckEnd();
 	}
 
     public Tile GetTileAtPosition(Vector2 position)
@@ -132,5 +136,13 @@ public class WorldManager : MonoBehaviour {
     public GameObject GetOtherWorld()
     {
         return (CurrentWorld == LightWorld) ? DarkWorld : LightWorld;
+    }
+
+    public void CheckEnd()
+    {
+        if(LightCharacter.CheckEnd() && DarkCharacter.CheckEnd())
+        {
+            SceneManager.LoadScene(++CurrentLevel);
+        }
     }
 }
