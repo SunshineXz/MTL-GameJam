@@ -39,7 +39,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
 
-        transform.position = Vector3.MoveTowards(transform.position, Position * 1.6f, 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, Position * 1.6f, 0.2f);
 
         if (Vector2.Distance(transform.position, Position * 1.6f) > 0.1f)
         {

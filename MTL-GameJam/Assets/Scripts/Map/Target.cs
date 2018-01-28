@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : Tile {
+public class Target : Placeable {
     public List<Bridge> bridges;
 
     public void ActiveBridge()
