@@ -11,18 +11,21 @@ public enum Direction
     Down
 }
 
-public class PlayableCharacter : Character {
+public class PlayableCharacter : Character
+{
     public Item PickedItem;
     bool Moving = false;
     bool Controlling = false;
     Direction direction;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         ReactToUserInput();
         MoveCharacter();
     }
@@ -30,7 +33,7 @@ public class PlayableCharacter : Character {
     public bool CheckEnd()
     {
         TileDestination = WorldManager.instance.GetTileAtPosition(Position);
-        if(TileDestination && TileDestination.TileExit)
+        if (TileDestination && TileDestination.TileExit)
         {
             return true;
         }
@@ -70,7 +73,7 @@ public class PlayableCharacter : Character {
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if(PickedItem != null)
+            if (PickedItem != null)
             {
                 PickedItem.Use();
             }
@@ -84,7 +87,7 @@ public class PlayableCharacter : Character {
         TileDestination = WorldManager.instance.GetTileAtPosition(nextPosition);
         if (TileDestination && TileDestination.TileDoor && !TileDestination.TileDoor.isOpen)
         {
-            if(PickedItem && PickedItem.GetType() == typeof(Key))
+            if (PickedItem && PickedItem.GetType() == typeof(Key))
             {
                 TileDestination.TileDoor.OpenDoor();
                 PickedItem = null;
@@ -92,14 +95,17 @@ public class PlayableCharacter : Character {
         }
         if (TileDestination && TileDestination.CharacterCanGoThrough(PickedItem))
         {
-            
-            if(TileDestination.TileItem)
+            if (TileDestination.GetType() == typeof(Button))
+            {
+                ((Button)TileDestination).PressButton();
+            }
+            if (TileDestination.TileItem && !PickedItem)
             {
                 PickedItem = TileDestination.TileItem;
                 TileDestination.TileItem = null;
                 PickedItem.gameObject.GetComponent<Renderer>().enabled = false;
 
-                if(TileDestination.GetType() == typeof(Portal))
+                if (TileDestination.GetType() == typeof(Portal))
                 {
                     Portal LinkedPortal = ((Portal)TileDestination).LinkedPortal;
                     LinkedPortal.TileItem.gameObject.GetComponent<Renderer>().enabled = false;
@@ -121,8 +127,8 @@ public class PlayableCharacter : Character {
         }
 
         transform.position = Vector3.MoveTowards(transform.position, TileDestination.transform.position, 0.1f);
-        
-        if(Vector3.Distance(transform.position, TileDestination.transform.position) <= 0.1f)
+
+        if (Vector3.Distance(transform.position, TileDestination.transform.position) <= 0.1f)
         {
             transform.position = TileDestination.transform.position;
             Moving = false;
@@ -134,10 +140,11 @@ public class PlayableCharacter : Character {
         Tile tile = WorldManager.instance.GetTileAtPosition(Position);
         if (PickedItem != null)
         {
-            if(tile.GetType() == typeof(Portal))
+            if (tile.GetType() == typeof(Portal))
             {
                 PickedItem = ((Portal)tile).SwitchItem(PickedItem);
-            } else
+            }
+            else if (!tile.TileItem && tile.TileType == TileTypeEnum.Ground)
             {
                 PickedItem.Position = tile.Position;
                 tile.TileItem = PickedItem;
