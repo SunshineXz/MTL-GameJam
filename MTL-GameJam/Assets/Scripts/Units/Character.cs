@@ -38,4 +38,9 @@ public class Character : MonoBehaviour {
     {
         Damage += potionDamage;
     }
+
+    public Vector2 GetPosition()
+    {
+        return Position;
+    }
 }

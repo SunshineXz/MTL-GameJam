@@ -3,10 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    Left,
+    Right,
+    Up,
+    Down
+}
+
 public class PlayableCharacter : Character {
     public Item PickedItem;
     bool Moving = false;
     bool Controlling = false;
+    Direction direction;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,22 +34,33 @@ public class PlayableCharacter : Character {
         if (Input.GetKey(KeyCode.W))
         {
             SetNextPosition(Position + new Vector2(0, 1));
+            direction = Direction.Up;
         }
         else if (Input.GetKey(KeyCode.S))
         {
             SetNextPosition(Position + new Vector2(0, -1));
+            direction = Direction.Down;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             SetNextPosition(Position + new Vector2(-1, 0));
+            direction = Direction.Left;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             SetNextPosition(Position + new Vector2(1, 0));
+            direction = Direction.Right;
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
             DropItem();
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if(PickedItem != null)
+            {
+                PickedItem.Use();
+            }
         }
     }
 
@@ -122,5 +142,10 @@ public class PlayableCharacter : Character {
     public Item GetPickedItem()
     {
         return PickedItem;
+    }
+
+    public Direction GetDirection()
+    {
+        return direction;
     }
 }

@@ -51,7 +51,7 @@ public class WorldManager : MonoBehaviour {
 
     public Tile GetTileAtPosition(Vector2 position)
     {
-        foreach(Tile tile in transform.Find(CurrentWorld.name).GetComponentsInChildren<Tile>())
+        foreach (Tile tile in transform.Find(CurrentWorld.name).GetComponentsInChildren<Tile>())
         {
             if (tile.Position == position)
             {

@@ -23,5 +23,5 @@ public class Item : MonoBehaviour
         transform.position = Position * 1.6f;
     }
 
-    public void Use(){  }
+    public virtual void Use(){  }
 }
