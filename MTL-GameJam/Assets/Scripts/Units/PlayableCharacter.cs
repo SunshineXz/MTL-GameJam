@@ -49,7 +49,7 @@ public class PlayableCharacter : Character {
         // VÉRIFIER AVEC LE WORLD SI LA TILE EST TRAVERSABLE
 
         TileDestination = WorldManager.instance.GetTileAtPosition(nextPosition);
-        if (TileDestination.TileDoor && !TileDestination.TileDoor.isOpen)
+        if (TileDestination && TileDestination.TileDoor && !TileDestination.TileDoor.isOpen)
         {
             if(PickedItem.GetType() == typeof(Key))
             {
@@ -108,7 +108,8 @@ public class PlayableCharacter : Character {
             {
                 PickedItem.Position = tile.Position;
                 tile.TileItem = PickedItem;
-                PickedItem.gameObject.GetComponent<Renderer>().enabled = true;
+                tile.TileItem.gameObject.GetComponent<Renderer>().enabled = true;
+                PickedItem = null;
             }
         }
     }
