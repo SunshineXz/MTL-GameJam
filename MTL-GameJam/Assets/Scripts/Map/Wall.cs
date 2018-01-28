@@ -21,6 +21,6 @@ public class Wall : Placeable
     public void OpenWall()
     {
         isOpen = true;
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Renderer>().enabled = false;
     }
 }

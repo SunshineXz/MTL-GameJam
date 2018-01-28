@@ -141,7 +141,7 @@ public class PlayableCharacter : Character
         Tile tile = WorldManager.instance.GetTileAtPosition(Position);
         if (PickedItem != null)
         {
-            if (tile.GetType() == typeof(Portal))
+            if (tile.GetType() == typeof(Portal) && !tile.TileItem)
             {
                 PickedItem = ((Portal)tile).SwitchItem(PickedItem);
             }
