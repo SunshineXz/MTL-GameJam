@@ -51,7 +51,7 @@ public class PlayableCharacter : Character {
         TileDestination = WorldManager.instance.GetTileAtPosition(nextPosition);
         if (TileDestination && TileDestination.TileDoor && !TileDestination.TileDoor.isOpen)
         {
-            if(PickedItem.GetType() == typeof(Key))
+            if(PickedItem && PickedItem.GetType() == typeof(Key))
             {
                 TileDestination.TileDoor.OpenDoor();
                 PickedItem = null;

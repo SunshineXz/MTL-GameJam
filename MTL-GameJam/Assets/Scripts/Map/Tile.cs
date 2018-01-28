@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour
         {
             if (TileDoor)
             {
-                if (!TileDoor.isOpen && characterItem.GetType() == typeof(Key))
+                if (!TileDoor.isOpen && characterItem && characterItem.GetType() == typeof(Key))
                 {
                     TileDoor.isOpen = true;
                     CanGoThrough = true;
@@ -44,7 +44,10 @@ public class Tile : MonoBehaviour
                     CanGoThrough = false;
                 }
             }
-            CanGoThrough = true;
+            else
+            {
+                CanGoThrough = true;
+            }
         }
         else if (TileType == TileTypeEnum.Wall)
         {
@@ -52,7 +55,7 @@ public class Tile : MonoBehaviour
         }
         else if (TileType == TileTypeEnum.Water)
         {
-            if(characterItem.GetType() == typeof(Umbrella))
+            if(characterItem && characterItem.GetType() == typeof(Umbrella))
             {
                 CanGoThrough = true;
             }
