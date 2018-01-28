@@ -41,7 +41,7 @@ public class PlayableCharacter : Character {
     }
 
     public void ReactToUserInput() {
-        if (Moving || !Controlling)
+        if (Moving || !Controlling || PauseMenu.Paused)
             return;
 
         if (Input.GetKey(KeyCode.W))

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class WorldManager : MonoBehaviour {
     public static WorldManager instance = null;
 
-    public int CurrentLevel = 0;
+    public static int CurrentLevel = 1;
 
     private const int MAP_SIZE = 10;
 
@@ -46,7 +46,12 @@ public class WorldManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space))
+        if(PauseMenu.Paused)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeWorld();
         }

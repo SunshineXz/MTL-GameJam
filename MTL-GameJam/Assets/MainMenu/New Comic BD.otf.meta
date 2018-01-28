@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: beb525697bdf6f640aed075422c08a7b
+timeCreated: 1517123860
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: New Comic BD
+  fontNames:
+  - New Comic BD
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

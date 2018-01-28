@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-    public Texture backgroundTexture;
-
-    private void OnGUI()
+    public void PlayGame()
     {
-        GUI.DrawTexture(new Rect(0,0,Screen.height, Screen.width), backgroundTexture);
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
