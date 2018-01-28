@@ -9,61 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1939325299243490}
+  m_RootGameObject: {fileID: 1268194566181072}
   m_IsPrefabParent: 1
---- !u!1 &1939325299243490
+--- !u!1 &1268194566181072
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4126591902281522}
-  - component: {fileID: 212712857861194264}
-  - component: {fileID: 114288605079871970}
+  - component: {fileID: 4281981133894534}
+  - component: {fileID: 212785728030723452}
+  - component: {fileID: 114325945473599234}
   m_Layer: 0
-  m_Name: GroundTilePrefab
+  m_Name: Umbrella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4126591902281522
+--- !u!4 &4281981133894534
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939325299243490}
+  m_GameObject: {fileID: 1268194566181072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.8, y: 4.8, z: 0}
+  m_LocalScale: {x: 2.4851465, y: 2.593156, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114288605079871970
+--- !u!114 &114325945473599234
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939325299243490}
+  m_GameObject: {fileID: 1268194566181072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611fa34051b47674d8f8efcef2bf9beb, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe9cdcbb59f34c4ebf2aaa6d1705a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileType: 0
-  Position: {x: 0, y: 0}
-  CanGoThrough: 0
-  TileImage: {fileID: 0}
-  TileDoor: {fileID: 0}
-  TileItem: {fileID: 0}
---- !u!212 &212712857861194264
+  Position: {x: 3, y: 3}
+--- !u!212 &212785728030723452
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939325299243490}
+  m_GameObject: {fileID: 1268194566181072}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,15 +82,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 779500583
-  m_SortingLayer: 3
+  m_SortingLayerID: 1191251077
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c115fcaf46637de4abf1fed43a878921, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1df744a7b2255547a838245636b1a65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

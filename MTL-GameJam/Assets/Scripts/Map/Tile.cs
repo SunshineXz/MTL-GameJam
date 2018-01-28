@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public enum TileTypeEnum
 {
     Wall,
-    Grass,
+    Ground,
     Water
 }
 
@@ -28,11 +28,24 @@ public class Tile : MonoBehaviour
 
     public bool CharacterCanGoThrough(Item characterItem)
     {
-        if(TileDoor && !TileDoor.isOpen && characterItem.GetType() == typeof(Key))
+        bool CanGoThrough = false;
+        if(TileDoor)
         {
-            TileDoor.isOpen = true;
+            if (!TileDoor.isOpen && characterItem.GetType() == typeof(Key))
+            {
+                TileDoor.isOpen = true;
+                CanGoThrough = true;
+            }
+            else
+            {
+                CanGoThrough = false;
+            }
         }
-        return (CanGoThrough && ((TileDoor != null) ? TileDoor.isOpen : true));
+        else if(TileType == TileTypeEnum.Ground)
+        {
+            CanGoThrough = true;
+        }
+        return CanGoThrough;
     }
 }
 
