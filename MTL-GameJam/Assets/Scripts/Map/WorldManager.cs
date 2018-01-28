@@ -123,4 +123,14 @@ public class WorldManager : MonoBehaviour {
     {
         return CurrentCharacter.GetComponent<PlayableCharacter>();
     }
+
+    public GameObject GetCurrentWorld()
+    {
+        return CurrentWorld;
+    }
+
+    public GameObject GetOtherWorld()
+    {
+        return (CurrentWorld == LightWorld) ? DarkWorld : LightWorld;
+    }
 }
