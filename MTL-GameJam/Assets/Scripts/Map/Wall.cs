@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bridge : MonoBehaviour
+public class Wall : MonoBehaviour
 {
-
     public bool isOpen;
 
     // Use this for initialization
@@ -19,7 +18,7 @@ public class Bridge : MonoBehaviour
 
     }
 
-    public void OpenBridge()
+    public void OpenWall()
     {
         isOpen = true;
         gameObject.SetActive(false);

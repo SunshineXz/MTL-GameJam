@@ -9,7 +9,7 @@ public class Target : Tile {
     {
         foreach(Bridge bridge in bridges)
         {
-            bridge.gameObject.GetComponent<Renderer>().enabled = true;
+            bridge.OpenBridge();
         }
     }
 }

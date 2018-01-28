@@ -21,18 +21,20 @@ public class Tile : MonoBehaviour
     public Item TileItem;
     public Target Target;
     public Exit TileExit;
+    public Wall wall;
+    public Bridge bridge;
 
     private void OnValidate()
     {
         transform.position = Position * 1.6f;
-        
+
     }
 
     public bool CharacterCanGoThrough(Item characterItem)
     {
         bool CanGoThrough = false;
-        
-        if(TileType == TileTypeEnum.Ground)
+
+        if (TileType == TileTypeEnum.Ground)
         {
             if (TileDoor)
             {
@@ -41,7 +43,7 @@ public class Tile : MonoBehaviour
                     TileDoor.isOpen = true;
                     CanGoThrough = true;
                 }
-                else if(TileDoor.isOpen)
+                else if (TileDoor.isOpen)
                 {
                     CanGoThrough = true;
                 }
@@ -49,6 +51,10 @@ public class Tile : MonoBehaviour
                 {
                     CanGoThrough = false;
                 }
+            }
+            else if (wall)
+            {
+                CanGoThrough = wall.isOpen;
             }
             else
             {
@@ -61,14 +67,23 @@ public class Tile : MonoBehaviour
         }
         else if (TileType == TileTypeEnum.Water)
         {
-            if(characterItem && characterItem.GetType() == typeof(Umbrella))
+            if (characterItem && characterItem.GetType() == typeof(Umbrella))
             {
                 CanGoThrough = true;
+            }
+            else if(bridge)
+            {
+                CanGoThrough = bridge.isOpen;
             }
             else
             {
                 CanGoThrough = false;
             }
+        }
+
+        if ((wall && wall.isOpen) || (bridge && bridge.isOpen))
+        {
+            CanGoThrough = true;
         }
 
         return CanGoThrough;

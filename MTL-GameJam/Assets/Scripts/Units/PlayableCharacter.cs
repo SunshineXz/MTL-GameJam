@@ -92,7 +92,10 @@ public class PlayableCharacter : Character {
         }
         if (TileDestination && TileDestination.CharacterCanGoThrough(PickedItem))
         {
-            
+            if(TileDestination.GetType() == typeof(Button))
+            {
+                ((Button)TileDestination).PressButton();
+            }
             if(TileDestination.TileItem)
             {
                 PickedItem = TileDestination.TileItem;
