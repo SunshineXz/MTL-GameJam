@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour {
+public class Door : Placeable {
 
-    public bool isOpen;
+    public bool isOpen = false;
 
 	// Use this for initialization
 	void Start () {
-        isOpen = false;
 	}
 	
 	// Update is called once per frame

@@ -81,5 +81,17 @@ public class Arrow : MonoBehaviour
                 Position = nextPosition;
             }
         }
+        else
+        {
+            float dis = Vector2.Distance(nextPosition * 1.6f, transform.position);
+            if(dis < 1.7f)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Position = nextPosition;
+            }
+        }
     }
 }

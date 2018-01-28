@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : Placeable {
+public class Placeable : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public Vector2 Position;
 
     private void OnValidate()
     {
         transform.position = Position * 1.6f;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position = Position * 1.6f;
     }

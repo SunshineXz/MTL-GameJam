@@ -11,11 +11,9 @@ public enum TileTypeEnum
 }
 
 
-public class Tile : MonoBehaviour
+public class Tile : Placeable
 {
     public TileTypeEnum TileType;
-    public Vector2 Position;
-    public bool CanGoThrough;
     public Image TileImage;
     public Door TileDoor;
     public Item TileItem;
@@ -23,12 +21,6 @@ public class Tile : MonoBehaviour
     public Exit TileExit;
     public Wall wall;
     public Bridge bridge;
-
-    private void OnValidate()
-    {
-        transform.position = Position * 1.6f;
-
-    }
 
     public bool CharacterCanGoThrough(Item characterItem)
     {

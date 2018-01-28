@@ -52,15 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ffa66d99df9004ebd062275a7eea97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileType: 1
   Position: {x: -1, y: -1}
-  CanGoThrough: 1
+  TileType: 1
   TileImage: {fileID: 0}
   TileDoor: {fileID: 0}
   TileItem: {fileID: 0}
   Target: {fileID: 0}
   TileExit: {fileID: 0}
-  pressedSprite: {fileID: 21300000, guid: 0d5d2ceca55dc2246aef5b605eb50d21, type: 3}
+  wall: {fileID: 0}
+  bridge: {fileID: 0}
+  pressedSprite: {fileID: 21300000, guid: 7b000ff9c5b658643bee76bae151b793, type: 3}
   walls:
   - {fileID: 0}
 --- !u!212 &212737868705549286
@@ -93,14 +94,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 779500583
-  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f67996049a18aa5438d2dbf33d6209e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.48}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1

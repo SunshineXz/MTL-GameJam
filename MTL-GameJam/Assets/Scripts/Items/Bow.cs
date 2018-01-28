@@ -11,7 +11,7 @@ public class Bow : Item {
 
         Arrow copy = GameObject.Instantiate(arrow.gameObject).GetComponent<Arrow>();
         copy.direction = CurrentCharacter.GetDirection();
-        copy.Position = CurrentCharacter.GetPosition();
+        copy.Position = CurrentCharacter.Position;
         copy.transform.parent = WorldManager.instance.GetCurrentWorld().gameObject.transform;
     }
 }

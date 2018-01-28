@@ -52,10 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611fa34051b47674d8f8efcef2bf9beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileType: 1
   Position: {x: 0, y: 0}
-  CanGoThrough: 1
+  TileType: 1
   TileImage: {fileID: 0}
+  TileDoor: {fileID: 0}
+  TileItem: {fileID: 0}
+  Target: {fileID: 0}
+  TileExit: {fileID: 0}
+  wall: {fileID: 0}
+  bridge: {fileID: 0}
 --- !u!212 &212273973669375394
 SpriteRenderer:
   m_ObjectHideFlags: 1

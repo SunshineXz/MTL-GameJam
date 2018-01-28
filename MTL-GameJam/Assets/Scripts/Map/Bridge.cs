@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bridge : MonoBehaviour
+public class Bridge : Placeable
 {
 
-    public bool isOpen;
+    public bool isOpen = false;
 
     // Use this for initialization
     void Start()
     {
-        isOpen = false;
+        gameObject.SetActive(isOpen);
     }
 
     // Update is called once per frame
@@ -22,6 +22,6 @@ public class Bridge : MonoBehaviour
     public void OpenBridge()
     {
         isOpen = true;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 }
