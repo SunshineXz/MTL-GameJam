@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public Image TileImage;
     public Door TileDoor;
     public Item TileItem;
+    public Target Target;
     public Exit TileExit;
 
     private void OnValidate()
